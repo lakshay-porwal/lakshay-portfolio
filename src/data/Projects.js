@@ -6,7 +6,7 @@ const projects = [
     tech: ["Solidity", "Ethereum", "Web3.js", "Hardhat"],
     github: "https://github.com/lakshay-porwal/Votechain-Hackathon-Project",
     live: "https://vote-chain-hackathon-project.vercel.app/",
-    image: "../../public/images_project/project.png", // 👈 ADD IMAGE
+    image: "/images_project/project.png", // ✅ FIXED
     featured: true,
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     tech: ["React", "Tailwind CSS", "REST API"],
     github: "https://github.com/lakshay-porwal/Recipedia",
     live: "https://recipedia-flax.vercel.app/",
-    image: "../../public/images_project/image.png", // 👈 ADD IMAGE
+    image: "/images_project/image.png", // ✅ FIXED
   },
   {
     title: "AlgoChat",
@@ -25,7 +25,7 @@ const projects = [
     tech: ["JavaScript", "AI", "Decision Trees"],
     github: "https://github.com/lakshay-porwal/CHATBOT_DSA",
     live: "https://lakshay-porwal.github.io/CHATBOT_DSA/",
-    image: "../../public/images_project/algo_chat.png", // 👈 ADD IMAGE
+    image: "/images_project/algo_chat.png", // ✅ FIXED
   },
 ];
 
