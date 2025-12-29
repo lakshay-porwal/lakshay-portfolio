@@ -1,16 +1,127 @@
-# React + Vite
+🌐 Lakshay Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal portfolio website showcasing my skills, projects, and experience as a Full-Stack & Blockchain Developer.
+Built with a clean UI, smooth animations, and optimized for both desktop and mobile devices.
 
-Currently, two official plugins are available:
+🔗 Live Website:
+👉 https://lakshay-portfolio-q7ck.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 GitHub Repository:
+👉 https://github.com/lakshay-porwal/lakshay-portfolio
 
-## React Compiler
+✨ Features
+✅ Fully responsive (mobile, tablet & desktop)
+🌙 Dark / Light mode support
+🎯 Animated Hero section with typing effect
+📄 Resume viewer (PDF modal)
+💼 Projects showcase with GitHub & live links
+📬 Contact form with EmailJS integration
+🚀 Smooth scroll & section animations
+📱 Mobile-optimized UI
+🧲 Floating “Hire Me” CTA button
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🛠 Tech Stack
 
-## Expanding the ESLint configuration
+Frontend: React.js
+Build Tool: Vite
+Styling: Tailwind CSS v4
+Icons: Lucide React
+Email Service: EmailJS
+Deployment: Vercel
+Version Control: Git & GitHub
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📂 Project Structure
+lakshay-portfolio/
+├── public/
+│   ├── images_project/
+│   └── lakshayResume_new.pdf
+├── src/
+│   ├── components/
+│   ├── data/
+│   ├── pages/
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+└── README.md
+
+⚙️ Getting Started (Run Locally)
+1️⃣ Clone the repository
+git clone https://github.com/lakshay-porwal/lakshay-portfolio.git
+
+2️⃣ Navigate into the project
+cd lakshay-portfolio
+
+3️⃣ Install dependencies
+npm install
+
+4️⃣ Start development server
+npm run dev
+
+
+Open 👉 http://localhost:5173 in your browser.
+
+🤝 Contributing / Changes Accepted
+
+Contributions, suggestions, and improvements are welcome.
+
+How to contribute:
+
+Fork the repository
+Create a new branch
+git checkout -b feature/your-feature-name
+
+
+Make your changes
+
+Commit your changes
+
+git commit -m "Add your message here"
+
+
+Push to your branch
+
+git push origin feature/your-feature-name
+
+
+Open a Pull Request
+
+All valid pull requests will be reviewed and appreciated 🙌
+
+📜 License
+
+This project is licensed under the MIT License.
+
+You are free to:
+
+✔ Use
+
+✔ Modify
+
+✔ Distribute
+
+✔ Fork
+
+With proper attribution.
+
+See the LICENSE file for more details.
+
+📬 Contact
+
+Email: lakshayporwal28@gmail.com
+
+GitHub: https://github.com/lakshay-porwal
+
+LinkedIn: https://www.linkedin.com/in/lakshay-porwal
+
+🚀 Future Improvements
+
+Blog section
+Backend integration
+Performance optimization (Lighthouse 100)
+More Web3 & Blockchain projects
+Analytics dashboard
+
+❤️ Acknowledgements
+
+Built with passion, consistency, and a lot of debugging ☕
+If you like this project, feel free to ⭐ the repository!
