@@ -167,7 +167,8 @@ const Hero = ({ scrollToSection = () => {} }) => {
               <X />
             </button>
             <iframe
-              src="../public/lakshayResume_new.pdf"
+         src="/lakshayResume_new.pdf"
+
               title="Resume"
               className="w-full h-full"
             />
