@@ -91,7 +91,8 @@ const Contact = () => {
       id="contact"
       ref={ref}
       className={`
-        py-24 px-4 sm:px-6 lg:px-8
+        py-16 sm:py-20 lg:py-24
+        px-4 sm:px-6 lg:px-8
         bg-gradient-to-b from-gray-50 to-white
         dark:from-gray-900 dark:to-gray-950
         transition-all duration-700
@@ -101,7 +102,7 @@ const Contact = () => {
       <div className="max-w-5xl mx-auto">
 
         {/* HEADER */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-4xl sm:text-5xl font-extrabold">
             Get In{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -119,10 +120,10 @@ const Contact = () => {
           </div>
         )}
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
 
           {/* INFO CARD */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg">
+          <div className="p-6 sm:p-7 lg:p-8 rounded-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               Contact Info
             </h3>
@@ -155,7 +156,7 @@ const Contact = () => {
           {/* FORM */}
           <form
             onSubmit={handleSubmit}
-            className="p-8 rounded-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg"
+            className="p-6 sm:p-7 lg:p-8 rounded-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg"
           >
             <div className="space-y-5">
               <Input
@@ -182,7 +183,7 @@ const Contact = () => {
                 type="submit"
                 disabled={loading}
                 className="
-                  w-full py-3 rounded-xl font-semibold text-white
+                  w-full py-4 sm:py-3 rounded-xl font-semibold text-white
                   bg-gradient-to-r from-blue-600 to-purple-600
                   flex items-center justify-center gap-2
                   hover:scale-105 transition-all
@@ -203,21 +204,22 @@ const Contact = () => {
 /* ===================== SUB COMPONENTS ===================== */
 
 const InfoRow = ({ icon, label, value, action }) => (
-  <div className="flex items-center gap-4 mb-6">
+  <div className="flex items-start sm:items-center gap-4 mb-6">
     <div className="p-3 rounded-xl bg-gray-100 dark:bg-gray-800">
       {icon}
     </div>
     <div className="flex-1">
       <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
       <div className="flex items-center gap-2">
-        <p className="text-gray-700 dark:text-gray-300">{value}</p>
+        <p className="text-gray-700 dark:text-gray-300 break-all sm:break-normal">
+          {value}
+        </p>
         {action}
       </div>
     </div>
   </div>
 );
 
-/* 🔥 FIXED INPUT */
 const Input = ({ type = "text", placeholder, value, error, onChange }) => (
   <div>
     <input
@@ -229,13 +231,9 @@ const Input = ({ type = "text", placeholder, value, error, onChange }) => (
         w-full px-4 py-3 rounded-xl
         bg-gray-50 dark:bg-gray-800
         text-gray-900 dark:text-gray-100
-
         border border-gray-300 dark:border-gray-700
         focus:ring-2 focus:ring-blue-500 focus:outline-none
-
-        placeholder:text-gray-500
-        dark:placeholder:text-gray-400
-
+        placeholder:text-gray-500 dark:placeholder:text-gray-400
         transition-all
       "
     />
@@ -243,7 +241,6 @@ const Input = ({ type = "text", placeholder, value, error, onChange }) => (
   </div>
 );
 
-/* 🔥 FIXED TEXTAREA */
 const Textarea = ({ placeholder, value, error, onChange }) => (
   <div>
     <textarea
@@ -255,13 +252,9 @@ const Textarea = ({ placeholder, value, error, onChange }) => (
         w-full px-4 py-3 rounded-xl
         bg-gray-50 dark:bg-gray-800
         text-gray-900 dark:text-gray-100
-
         border border-gray-300 dark:border-gray-700
         focus:ring-2 focus:ring-blue-500 focus:outline-none
-
-        placeholder:text-gray-500
-        dark:placeholder:text-gray-400
-
+        placeholder:text-gray-500 dark:placeholder:text-gray-400
         transition-all
       "
     />
