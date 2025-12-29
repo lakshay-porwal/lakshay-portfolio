@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* ===================== GLOBAL OVERFLOW ===================== */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* ===================== DARK MODE VARIANT (TAILWIND v4) ===================== */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ===================== BASE STYLES ===================== */
+@layer base {
+  body {
+    @apply bg-white text-gray-900 transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-gray-950 text-gray-100;
+  }
+}
+
+/* ===================== HERO ANIMATIONS ===================== */
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.9s ease-out both;
+}
+
+/* Underline Grow Animation */
+@keyframes underlineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-underline {
+  transform-origin: left;
+  animation: underlineGrow 0.7s ease-out forwards;
+}
