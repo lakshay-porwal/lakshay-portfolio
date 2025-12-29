@@ -6,7 +6,7 @@ import {
   X,
   Eye,
   ChevronDown,
-  Briefcase
+  Briefcase,
 } from "lucide-react";
 
 const ROLES = [
@@ -49,14 +49,13 @@ const Hero = ({ scrollToSection = () => {} }) => {
           bg-white dark:bg-gray-950
         "
       >
-        {/* BACKGROUND BLOBS (SUBTLE) */}
+        {/* BACKGROUND BLOBS */}
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl" />
         <div className="absolute top-1/2 -right-40 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl" />
 
         {/* CONTENT */}
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="max-w-3xl space-y-8 animate-fadeUp">
-
             <p className="text-blue-600 dark:text-blue-400 font-semibold tracking-widest uppercase">
               Hello, I’m
             </p>
@@ -68,7 +67,6 @@ const Hero = ({ scrollToSection = () => {} }) => {
                 Porwal
               </span>
 
-              {/* UNDERLINE */}
               <span
                 className="
                   absolute left-0 -bottom-3 w-full h-[3px]
@@ -118,19 +116,26 @@ const Hero = ({ scrollToSection = () => {} }) => {
 
             {/* SOCIAL */}
             <div className="flex items-center gap-5 pt-6">
-              <Social href="https://github.com/lakshay-porwal"><Github /></Social>
-              <Social href="https://www.linkedin.com/in/lakshay-porwal"><Linkedin /></Social>
-              <Social href="mailto:lakshayp987@gmail.com"><Mail /></Social>
+              <Social href="https://github.com/lakshay-porwal">
+                <Github />
+              </Social>
+              <Social href="https://www.linkedin.com/in/lakshay-porwal">
+                <Linkedin />
+              </Social>
+              <Social href="mailto:lakshayp987@gmail.com">
+                <Mail />
+              </Social>
             </div>
           </div>
         </div>
 
-        {/* SCROLL INDICATOR */}
+        {/* SCROLL INDICATOR (HIDDEN ON MOBILE ✅) */}
         <button
           onClick={() => scrollToSection("about")}
           className="
+            hidden sm:flex
             absolute bottom-8 left-1/2 -translate-x-1/2
-            flex flex-col items-center gap-2
+            flex-col items-center gap-2
             text-gray-500 dark:text-gray-400
             hover:text-blue-600 dark:hover:text-blue-400
             transition
@@ -167,8 +172,7 @@ const Hero = ({ scrollToSection = () => {} }) => {
               <X />
             </button>
             <iframe
-         src="/lakshayResume_new.pdf"
-
+              src="/lakshayResume_new.pdf"
               title="Resume"
               className="w-full h-full"
             />

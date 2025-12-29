@@ -79,17 +79,26 @@ const Footer = () => {
         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-10">
-
+      {/* ===================== MAIN GRID ===================== */}
+      <div
+        className="
+          max-w-7xl mx-auto
+          px-4 sm:px-6 lg:px-8
+          grid gap-10
+          md:grid-cols-3
+          text-center md:text-left
+        "
+      >
         {/* ===================== SOCIAL ===================== */}
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
             Connect with Me
           </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600 dark:text-gray-400 max-w-xs mx-auto md:mx-0">
             Let’s collaborate on impactful projects and opportunities.
           </p>
-          <div className="flex items-center gap-4">
+
+          <div className="flex justify-center md:justify-start gap-4">
             {SOCIAL_LINKS.map((item) => (
               <a
                 key={item.href}
@@ -114,6 +123,7 @@ const Footer = () => {
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
             Quick Links
           </h3>
+
           <ul className="space-y-2 text-gray-600 dark:text-gray-400">
             {QUICK_LINKS.map((link) => (
               <li key={link.href}>
@@ -133,38 +143,39 @@ const Footer = () => {
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
             Stay in Touch
           </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600 dark:text-gray-400 max-w-xs mx-auto md:mx-0">
             Subscribe for updates and new projects.
           </p>
 
-          <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
-            <div className="flex gap-2">
-             <input
-  type="email"
-  value={email}
-  onChange={(e) => setEmail(e.target.value)}
-  placeholder="Your Email"
-  className="
-    flex-1 px-4 py-2 rounded-lg
-    bg-gray-50 dark:bg-gray-700
-    border border-gray-300 dark:border-gray-600
-    placeholder:text-gray-500 dark:placeholder:text-gray-400
-    focus:ring-2 focus:ring-blue-500 outline-none
-    transition-all
-  "
-/>
+          <form
+            onSubmit={handleSubscribe}
+            className="flex flex-col gap-3 max-w-sm mx-auto md:mx-0"
+          >
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your Email"
+              className="
+                w-full px-4 py-2 rounded-lg
+                bg-gray-50 dark:bg-gray-700
+                border border-gray-300 dark:border-gray-600
+                placeholder:text-gray-500 dark:placeholder:text-gray-400
+                focus:ring-2 focus:ring-blue-500 outline-none
+                transition-all
+              "
+            />
 
-              <button
-                type="submit"
-                className="
-                  px-4 py-2 rounded-lg font-semibold text-white
-                  bg-gradient-to-r from-blue-600 to-purple-600
-                  transition-all hover:scale-105
-                "
-              >
-                Subscribe
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="
+                w-full py-2 rounded-lg font-semibold text-white
+                bg-gradient-to-r from-blue-600 to-purple-600
+                transition-all hover:scale-105
+              "
+            >
+              Subscribe
+            </button>
 
             {error && <p className="text-sm text-red-500">{error}</p>}
             {subscribed && (
@@ -174,11 +185,10 @@ const Footer = () => {
             )}
           </form>
         </div>
-
       </div>
 
       {/* ===================== COPYRIGHT ===================== */}
-      <div className="mt-12 text-center">
+      <div className="mt-12 text-center px-4">
         <p className="text-sm text-gray-600 dark:text-gray-400">
           Made with <span className="text-red-500">❤️</span> by{" "}
           <span className="font-semibold text-blue-600 dark:text-blue-400">
