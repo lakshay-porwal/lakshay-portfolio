@@ -47,6 +47,7 @@ const Hero = ({ scrollToSection = () => {} }) => {
         className="
           relative min-h-screen flex items-center overflow-hidden
           bg-white dark:bg-gray-950
+          pt-24 sm:pt-0
         "
       >
         {/* BACKGROUND BLOBS */}
@@ -129,7 +130,7 @@ const Hero = ({ scrollToSection = () => {} }) => {
           </div>
         </div>
 
-        {/* SCROLL INDICATOR (HIDDEN ON MOBILE ✅) */}
+        {/* SCROLL INDICATOR (hidden on mobile) */}
         <button
           onClick={() => scrollToSection("about")}
           className="
