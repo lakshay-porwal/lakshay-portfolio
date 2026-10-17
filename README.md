@@ -4,8 +4,7 @@ A refined, recruiter-ready personal engineering portfolio and profile-grounded A
 
 - 🔗 **Live Website:** [https://lakshay-portfolio-q7ck.vercel.app/](https://lakshay-portfolio-q7ck.vercel.app/)
 - 💻 **GitHub Repository:** [https://github.com/lakshay-porwal/lakshay-portfolio](https://github.com/lakshay-porwal/lakshay-portfolio)
-- 🎓 **Education:** B.Tech Computer Science Engineering, Rajasthan Technical University (RTU), Kota (2023 – 2027) | **CGPA: 9.10 / 10**
-
+- 🎓 **Education:** B.Tech Computer Science Engineering, Rajasthan Technical University (RTU), Kota (2023 – 2027)
 ---
 
 ## ✨ Features & Architecture
