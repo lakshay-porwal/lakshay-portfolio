@@ -3,123 +3,136 @@ import {
   SiC,
   SiRust,
   SiJavascript,
+  SiTypescript,
+  SiPython,
   SiSolidity,
   SiHtml5,
   SiCss3,
   SiReact,
+  SiNextdotjs,
   SiTailwindcss,
   SiBootstrap,
   SiMysql,
+  SiPostgresql,
+  SiRedis,
+  SiPrisma,
   SiFirebase,
   SiGit,
   SiGithub,
+  SiDocker,
+  SiPostman,
+  SiLinux,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiVite,
+  SiVercel,
+  SiOpenai,
+  SiSocketdotio,
 } from "react-icons/si";
 import { FaDatabase, FaEthereum } from "react-icons/fa";
-import { useEffect, useRef, useState } from "react";
+import { profileData } from "../src/data/profileData";
 
-/* ===================== ICON MAP ===================== */
-const ICONS = {
+const ICON_MAP = {
   "C++": SiCplusplus,
+  Python: SiPython,
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
   C: SiC,
   Rust: SiRust,
-  JavaScript: SiJavascript,
   Solidity: SiSolidity,
-  HTML: SiHtml5,
-  CSS: SiCss3,
+  "React.js": SiReact,
   React: SiReact,
+  "Next.js": SiNextdotjs,
+  HTML5: SiHtml5,
+  CSS3: SiCss3,
   "Tailwind CSS": SiTailwindcss,
   Bootstrap: SiBootstrap,
-  MySQL: SiMysql,
-  SQL: FaDatabase,
+  "Node.js": SiNodedotjs,
+  "Express.js": SiExpress,
+  Express: SiExpress,
+  "Socket.IO": SiSocketdotio,
   Firebase: SiFirebase,
-  Git: SiGit,
-  GitHub: SiGithub,
+  MySQL: SiMysql,
+  PostgreSQL: SiPostgresql,
+  SQL: FaDatabase,
+  MongoDB: SiMongodb,
+  Redis: SiRedis,
+  Prisma: SiPrisma,
+  Ethereum: FaEthereum,
   "Web3.js": FaEthereum,
   "Ethers.js": FaEthereum,
+  Hardhat: FaEthereum,
   MetaMask: FaEthereum,
+  "OpenAI API": SiOpenai,
+  Docker: SiDocker,
+  Postman: SiPostman,
+  Linux: SiLinux,
+  Git: SiGit,
+  GitHub: SiGithub,
+  Vite: SiVite,
+  Vercel: SiVercel,
 };
 
-const Skills = ({ skills = {} }) => {
-  const ref = useRef(null);
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => e.isIntersecting && setShow(true),
-      { threshold: 0.25 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
+const Skills = ({ skills = profileData.skillCategories }) => {
   return (
-    <div ref={ref}>
-
+    <div className="space-y-12">
       {/* ===================== HEADER ===================== */}
-      <div className="text-center mb-20">
-        <h2 className="text-4xl sm:text-5xl font-extrabold">
-          My{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Skillset
-          </span>
+      <div className="text-center max-w-2xl mx-auto space-y-3">
+        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
+          Technical Skills & Technologies
         </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
-          Tools, technologies, and frameworks I use to build real-world products.
+        <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400">
+          Tools, languages, and architectures verified across production code, hackathons, and projects.
         </p>
       </div>
 
-      {/* ===================== SKILL GROUPS ===================== */}
-      <div
-        className={`
-          grid md:grid-cols-2 lg:grid-cols-3 gap-10
-          transition-all duration-700
-          ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-        `}
-      >
+      {/* ===================== CATEGORIES GRID ===================== */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.entries(skills).map(([category, list]) => (
           <div
             key={category}
             className="
-              rounded-3xl overflow-hidden
-              bg-white dark:bg-gray-900
-              border border-gray-200 dark:border-gray-800
-              shadow-md hover:shadow-2xl
-              transition-all hover:-translate-y-1
+              rounded-2xl p-5
+              bg-white dark:bg-neutral-900
+              border border-neutral-200 dark:border-neutral-800
+              hover:border-cyan-500/40 dark:hover:border-cyan-400/40
+              shadow-sm hover:shadow-lg hover:shadow-cyan-500/5
+              transition-all duration-300
             "
           >
-            {/* CATEGORY HEADER */}
-            <div className="px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600">
-              <h3 className="text-lg font-semibold text-white">
+            {/* CATEGORY TITLE */}
+            <div className="border-b border-neutral-100 dark:border-neutral-800 pb-3 mb-4">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
                 {category}
               </h3>
             </div>
 
-            {/* SKILLS */}
-            <div className="p-6 grid grid-cols-2 gap-4">
+            {/* BADGES / LIST */}
+            <div className="flex flex-wrap gap-2">
               {list.map((skill) => {
-                const Icon = ICONS[skill];
+                const Icon = ICON_MAP[skill];
 
                 return (
                   <div
                     key={skill}
                     className="
-                      flex items-center gap-3 p-3 rounded-xl
-                      bg-gray-50 dark:bg-gray-800
-                      border border-gray-200 dark:border-gray-700
-                      transition-all
-                      hover:shadow-lg hover:scale-[1.03]
+                      inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                      bg-neutral-50 dark:bg-neutral-800
+                      border border-neutral-200/70 dark:border-neutral-700/60
+                      text-xs font-medium text-neutral-800 dark:text-neutral-200
+                      hover:bg-neutral-100 dark:hover:bg-neutral-700
+                      hover:border-cyan-500/30 dark:hover:border-cyan-400/30
+                      hover:text-cyan-600 dark:hover:text-cyan-300
+                      transition-colors
                     "
                   >
-                    <div className="
-                      p-2 rounded-lg
-                      bg-blue-100 dark:bg-blue-900/30
-                      text-blue-600 dark:text-blue-400
-                    ">
-                      {Icon && <Icon className="w-5 h-5" />}
-                    </div>
-                    <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                      {skill}
-                    </span>
+                    {Icon ? (
+                      <Icon className="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400 shrink-0" />
+                    ) : (
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 shrink-0" />
+                    )}
+                    <span>{skill}</span>
                   </div>
                 );
               })}

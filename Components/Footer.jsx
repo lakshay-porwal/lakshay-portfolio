@@ -1,200 +1,114 @@
-import { useEffect, useRef, useState } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, ArrowUp } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
+import { profileData } from "../src/data/profileData";
 
-/* ===================== CONSTANTS ===================== */
-const SOCIAL_LINKS = [
-  {
-    icon: <Github className="w-5 h-5" />,
-    href: "https://github.com/lakshay-porwal",
-    color: "text-gray-800 dark:text-gray-200",
-  },
-  {
-    icon: <Linkedin className="w-5 h-5" />,
-    href: "https://www.linkedin.com/in/lakshay-porwal",
-    color: "text-blue-600 dark:text-blue-400",
-  },
-  {
-    icon: <Mail className="w-5 h-5" />,
-    href: "mailto:lakshayporwal28@gmail.com",
-    color: "text-red-500",
-  },
-];
+const Footer = ({ scrollToSection = () => {} }) => {
+  const { personal } = profileData;
 
-const QUICK_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
-
-const Footer = () => {
-  const sectionRef = useRef(null);
-  const hasAnimated = useRef(false);
-
-  const [isVisible, setIsVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-  const [error, setError] = useState("");
-
-  /* ===================== FADE-IN ===================== */
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  /* ===================== SUBSCRIBE ===================== */
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    setError("");
-
-    if (!email.trim()) return setError("Please enter your email");
-    if (!/\S+@\S+\.\S+/.test(email))
-      return setError("Please enter a valid email");
-
-    setSubscribed(true);
-    setEmail("");
-    setTimeout(() => setSubscribed(false), 3000);
-  };
+  const quickLinks = [
+    { label: "Home", id: "home" },
+    { label: "About & Education", id: "about" },
+    { label: "Skills", id: "skills" },
+    { label: "Projects", id: "projects" },
+    { label: "Experience", id: "experience" },
+    { label: "Contact", id: "contact" },
+  ];
 
   return (
-    <footer
-      ref={sectionRef}
-      className={`
-        pt-12 pb-8
-        bg-gradient-to-r from-blue-50 to-purple-50
-        dark:from-gray-900 dark:to-gray-950
-        border-t border-gray-200 dark:border-gray-800
-        transition-all duration-700
-        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-      `}
-    >
-      {/* ===================== MAIN GRID ===================== */}
-      <div
-        className="
-          max-w-7xl mx-auto
-          px-4 sm:px-6 lg:px-8
-          grid gap-10
-          md:grid-cols-3
-          text-center md:text-left
-        "
-      >
-        {/* ===================== SOCIAL ===================== */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-            Connect with Me
-          </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 max-w-xs mx-auto md:mx-0">
-            Let’s collaborate on impactful projects and opportunities.
-          </p>
+    <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 py-12 transition-colors">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        {/* UPPER ROW */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-1">
+            <h3 className="text-lg font-black tracking-tight font-mono text-neutral-900 dark:text-white">
+              Lakshay<span className="text-cyan-600 dark:text-cyan-400">.Dev</span>
+            </h3>
+            <p className="text-xs text-neutral-500 dark:text-neutral-400">
+              B.Tech Computer Science Engineering • Rajasthan Technical University, Kota
+            </p>
+          </div>
 
-          <div className="flex justify-center md:justify-start gap-4">
-            {SOCIAL_LINKS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`
-                  p-3 rounded-full
-                  bg-gray-100 dark:bg-gray-800
-                  transition-all hover:scale-110 hover:shadow-lg
-                  ${item.color}
-                `}
-              >
-                {item.icon}
-              </a>
-            ))}
+          {/* SOCIAL LINKS */}
+          <div className="flex items-center gap-3">
+            <a
+              href={personal.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+              className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
+              title="GitHub"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+
+            <a
+              href={personal.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+              className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
+              title="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+
+            <a
+              href={personal.links.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LeetCode profile"
+              className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:text-amber-500 dark:hover:text-amber-400 transition"
+              title="LeetCode (500+ Solved)"
+            >
+              <SiLeetcode className="w-4 h-4" />
+            </a>
+
+            <a
+              href={`mailto:${personal.email}`}
+              aria-label="Send direct email"
+              className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
+              title="Email"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+
+            <button
+              onClick={() => scrollToSection("home")}
+              aria-label="Back to top"
+              className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition cursor-pointer"
+              title="Back to top"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
           </div>
         </div>
 
-        {/* ===================== QUICK LINKS ===================== */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-            Quick Links
-          </h3>
-
-          <ul className="space-y-2 text-gray-600 dark:text-gray-400">
-            {QUICK_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* ===================== NEWSLETTER ===================== */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-            Stay in Touch
-          </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 max-w-xs mx-auto md:mx-0">
-            Subscribe for updates and new projects.
-          </p>
-
-          <form
-            onSubmit={handleSubscribe}
-            className="flex flex-col gap-3 max-w-sm mx-auto md:mx-0"
-          >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your Email"
-              className="
-                w-full px-4 py-2 rounded-lg
-                bg-gray-50 dark:bg-gray-700
-                border border-gray-300 dark:border-gray-600
-                placeholder:text-gray-500 dark:placeholder:text-gray-400
-                focus:ring-2 focus:ring-blue-500 outline-none
-                transition-all
-              "
-            />
-
+        {/* QUICK NAVIGATION */}
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 border-t border-neutral-100 dark:border-neutral-800 text-xs">
+          {quickLinks.map((link) => (
             <button
-              type="submit"
-              className="
-                w-full py-2 rounded-lg font-semibold text-white
-                bg-gradient-to-r from-blue-600 to-purple-600
-                transition-all hover:scale-105
-              "
+              key={link.id}
+              onClick={() => scrollToSection(link.id)}
+              className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition"
             >
-              Subscribe
+              {link.label}
             </button>
-
-            {error && <p className="text-sm text-red-500">{error}</p>}
-            {subscribed && (
-              <p className="text-sm text-green-500">
-                ✅ Subscribed successfully!
-              </p>
-            )}
-          </form>
+          ))}
         </div>
-      </div>
 
-      {/* ===================== COPYRIGHT ===================== */}
-      <div className="mt-12 text-center px-4">
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          Made with <span className="text-red-500">❤️</span> by{" "}
-          <span className="font-semibold text-blue-600 dark:text-blue-400">
-            Lakshay Porwal
-          </span>
-        </p>
+        {/* COPYRIGHT & CREDIBILITY */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-neutral-100 dark:border-neutral-800 text-[11px] text-neutral-500">
+          <p>
+            © {new Date().getFullYear()} Lakshay Porwal. Built with React & Tailwind CSS.
+          </p>
+          <p className="flex items-center gap-1.5">
+            <span>Verified Engineering Portfolio</span>
+            <span>•</span>
+            <span>Atom AI Guarded</span>
+          </p>
+        </div>
+
       </div>
     </footer>
   );

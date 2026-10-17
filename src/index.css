@@ -1,54 +1,51 @@
 @import "tailwindcss";
 
-/* ===================== GLOBAL OVERFLOW ===================== */
-html,
-body {
-  overflow-x: hidden;
-}
-
 /* ===================== DARK MODE VARIANT (TAILWIND v4) ===================== */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ===================== BASE STYLES ===================== */
-@layer base {
-  body {
-    @apply bg-white text-gray-900 transition-colors duration-300;
-  }
+/* ===================== ROOT & FONT SETTINGS ===================== */
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color-scheme: light dark;
+}
 
-  .dark body {
-    @apply bg-gray-950 text-gray-100;
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ===================== ACCESSIBILITY: REDUCED MOTION ===================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* ===================== HERO ANIMATIONS ===================== */
-
-/* Fade Up Animation */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ===================== SUBTLE CUSTOM SCROLLBAR ===================== */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.animate-fadeUp {
-  animation: fadeUp 0.9s ease-out both;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* Underline Grow Animation */
-@keyframes underlineGrow {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 9999px;
 }
 
-.animate-underline {
-  transform-origin: left;
-  animation: underlineGrow 0.7s ease-out forwards;
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* Code font helper */
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
 }
